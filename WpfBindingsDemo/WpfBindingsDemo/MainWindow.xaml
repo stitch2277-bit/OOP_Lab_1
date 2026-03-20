@@ -1,12 +1,33 @@
 ﻿<Window x:Class="WpfBindingsDemo.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfBindingsDemo"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        xmlns:tabs="clr-namespace:WpfBindingsDemo.Views.Tabs"
+        Title="WPF Bindings Demo" Height="600" Width="900"
+        WindowStartupLocation="CenterScreen">
 
+    <Grid>
+        <TabControl SelectedIndex="{Binding SelectedTabIndex}">
+
+            <TabItem Header="Привязка по умолчанию">
+                <tabs:DefaultBindingView/>
+            </TabItem>
+
+            <TabItem Header="Двухсторонняя привязка">
+                <tabs:TwoWayBindingView/>
+            </TabItem>
+
+            <TabItem Header="Одноразовая привязка">
+                <tabs:OneTimeBindingView/>
+            </TabItem>
+
+            <TabItem Header="Односторонние привязки">
+                <tabs:OneWayBindingView/>
+            </TabItem>
+
+            <TabItem Header="Триггеры">
+                <tabs:TriggersView/>
+            </TabItem>
+
+        </TabControl>
     </Grid>
 </Window>

@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="WpfBindingsDemo.Views.Tabs.DefaultBindingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <TextBlock Text="Вкладка: Привязка по умолчанию"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="16"/>
+    </Grid>
+</UserControl>
