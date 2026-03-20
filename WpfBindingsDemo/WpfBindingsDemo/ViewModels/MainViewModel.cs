@@ -4,16 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using CommunityToolkit.Mvvm.ComponentModel;
+
 namespace WpfBindingsDemo.ViewModels
 {
-    public class MainViewModel : BaseViewModel
+    public partial class MainViewModel : BaseViewModel
     {
+        [ObservableProperty]
         private int _selectedTabIndex;
-
-        public int SelectedTabIndex
-        {
-            get => _selectedTabIndex;
-            set => SetProperty(ref _selectedTabIndex, value);
-        }
     }
 }

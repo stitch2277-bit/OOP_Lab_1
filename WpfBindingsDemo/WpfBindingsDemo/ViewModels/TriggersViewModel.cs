@@ -1,69 +1,50 @@
-﻿namespace WpfBindingsDemo.ViewModels
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+namespace WpfBindingsDemo.ViewModels
 {
-    public class TriggersViewModel : BaseViewModel
+    public partial class TriggersViewModel : BaseViewModel
     {
-        // --- Trigger ---
-        private bool _isEnabled = false;
-        public bool IsEnabled
-        {
-            get => _isEnabled;
-            set => SetProperty(ref _isEnabled, value);
-        }
+        [ObservableProperty]
+        private bool _isEnabled;
 
-        // --- DataTrigger ---
+        [ObservableProperty]
         private string _status = "Нет";
-        public string Status
-        {
-            get => _status;
-            set => SetProperty(ref _status, value);
-        }
 
-        // --- MultiTrigger / MultiDataTrigger ---
-        private bool _conditionA = false;
-        public bool ConditionA
-        {
-            get => _conditionA;
-            set => SetProperty(ref _conditionA, value);
-        }
+        [ObservableProperty]
+        private bool _conditionA;
 
-        private bool _conditionB = false;
-        public bool ConditionB
-        {
-            get => _conditionB;
-            set => SetProperty(ref _conditionB, value);
-        }
+        [ObservableProperty]
+        private bool _conditionB;
 
+        [ObservableProperty]
         private string _multiStatus = "Нет";
-        public string MultiStatus
-        {
-            get => _multiStatus;
-            set => SetProperty(ref _multiStatus, value);
-        }
 
-        // --- EventTrigger ---
+        [ObservableProperty]
         private string _eventLog = "Наведи мышь на кнопку...";
-        public string EventLog
+
+        [RelayCommand]
+        private void SetStatusOk() => Status = "Ок";
+
+        [RelayCommand]
+        private void SetStatusError() => Status = "Ошибка";
+
+        [RelayCommand]
+        private void SetStatusNone() => Status = "Нет";
+
+        [RelayCommand]
+        private void SetMultiStatus()
         {
-            get => _eventLog;
-            set => SetProperty(ref _eventLog, value);
-        }
-
-        // Команды
-        public RelayCommand SetStatusOkCommand { get; }
-        public RelayCommand SetStatusErrorCommand { get; }
-        public RelayCommand SetStatusNoneCommand { get; }
-        public RelayCommand SetMultiStatusCommand { get; }
-
-        public TriggersViewModel()
-        {
-            SetStatusOkCommand = new RelayCommand(_ => Status = "Ок");
-            SetStatusErrorCommand = new RelayCommand(_ => Status = "Ошибка");
-            SetStatusNoneCommand = new RelayCommand(_ => Status = "Нет");
-
-            SetMultiStatusCommand = new RelayCommand(_ =>
-            {
-                MultiStatus = (ConditionA && ConditionB) ? "Оба условия выполнены!" : "Не все условия";
-            });
+            MultiStatus = (ConditionA && ConditionB)
+                ? "Оба условия выполнены!"
+                : "Не все условия";
         }
     }
 }

@@ -4,57 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System;
 
 namespace WpfBindingsDemo.ViewModels
 {
-    public class OneWayBindingViewModel : BaseViewModel
+    public partial class OneWayBindingViewModel : BaseViewModel
     {
-        // --- OneWay ---
+        [ObservableProperty]
         private string _sourceText = "Текст из ViewModel";
-        public string SourceText
-        {
-            get => _sourceText;
-            set => SetProperty(ref _sourceText, value);
-        }
 
+        [ObservableProperty]
         private double _sliderValue = 50;
-        public double SliderValue
-        {
-            get => _sliderValue;
-            set => SetProperty(ref _sliderValue, value);
-        }
 
-        // --- OneWayToSource ---
+        [ObservableProperty]
         private string _inputText = "";
-        public string InputText
-        {
-            get => _inputText;
-            set => SetProperty(ref _inputText, value);
-        }
 
+        [ObservableProperty]
         private double _userSliderValue = 50;
-        public double UserSliderValue
+
+        [RelayCommand]
+        private void UpdateSource()
         {
-            get => _userSliderValue;
-            set => SetProperty(ref _userSliderValue, value);
+            SourceText = "Обновлено в " + DateTime.Now.ToString("HH:mm:ss");
+            SliderValue = new Random().Next(0, 100);
         }
 
-        // Команды
-        public RelayCommand UpdateSourceCommand { get; }
-        public RelayCommand RandomSliderCommand { get; }
-
-        public OneWayBindingViewModel()
+        [RelayCommand]
+        private void RandomSlider()
         {
-            UpdateSourceCommand = new RelayCommand(_ =>
-            {
-                SourceText = "Обновлено в " + DateTime.Now.ToString("HH:mm:ss");
-                SliderValue = new Random().Next(0, 100);
-            });
-
-            RandomSliderCommand = new RelayCommand(_ =>
-            {
-                UserSliderValue = new Random().Next(0, 100);
-            });
+            UserSliderValue = new Random().Next(0, 100);
         }
     }
 }

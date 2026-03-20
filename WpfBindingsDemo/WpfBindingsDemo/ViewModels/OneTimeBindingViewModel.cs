@@ -5,50 +5,34 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System;
 
 namespace WpfBindingsDemo.ViewModels
 {
-    public class OneTimeBindingViewModel : BaseViewModel
+    public partial class OneTimeBindingViewModel : BaseViewModel
     {
+        [ObservableProperty]
         private string _textValue = "Начальное значение";
-        public string TextValue
-        {
-            get => _textValue;
-            set => SetProperty(ref _textValue, value);
-        }
 
+        [ObservableProperty]
         private double _sliderValue = 40;
-        public double SliderValue
-        {
-            get => _sliderValue;
-            set => SetProperty(ref _sliderValue, value);
-        }
 
+        [ObservableProperty]
         private string _currentTime = DateTime.Now.ToString("HH:mm:ss");
-        public string CurrentTime
+
+        [RelayCommand]
+        private void UpdateValues()
         {
-            get => _currentTime;
-            set => SetProperty(ref _currentTime, value);
+            TextValue = "Обновлённое значение " + DateTime.Now.ToString("HH:mm:ss");
+            SliderValue = new Random().Next(0, 100);
         }
 
-        // Команда обновления значений в VM
-        public RelayCommand UpdateValuesCommand { get; }
-
-        // Команда обновления времени
-        public RelayCommand UpdateTimeCommand { get; }
-
-        public OneTimeBindingViewModel()
+        [RelayCommand]
+        private void UpdateTime()
         {
-            UpdateValuesCommand = new RelayCommand(_ =>
-            {
-                TextValue = "Обновлённое значение " + DateTime.Now.ToString("HH:mm:ss");
-                SliderValue = new Random().Next(0, 100);
-            });
-
-            UpdateTimeCommand = new RelayCommand(_ =>
-            {
-                CurrentTime = DateTime.Now.ToString("HH:mm:ss");
-            });
+            CurrentTime = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

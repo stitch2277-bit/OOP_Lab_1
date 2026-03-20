@@ -5,27 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
+// Файл больше не нужен — CommunityToolkit предоставляет
+// собственный RelayCommand через атрибут [RelayCommand]
+// Оставляем пустой класс для совместимости с существующим кодом
+
 namespace WpfBindingsDemo.ViewModels
 {
-    public class RelayCommand : ICommand
-    {
-        private readonly Action<object?> _execute;
-        private readonly Func<object?, bool>? _canExecute;
-
-        public RelayCommand(Action<object?> execute, Func<object?, bool>? canExecute = null)
-        {
-            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
-            _canExecute = canExecute;
-        }
-
-        public event EventHandler? CanExecuteChanged
-        {
-            add => CommandManager.RequerySuggested += value;
-            remove => CommandManager.RequerySuggested -= value;
-        }
-
-        public bool CanExecute(object? parameter) => _canExecute?.Invoke(parameter) ?? true;
-
-        public void Execute(object? parameter) => _execute(parameter);
-    }
+    // RelayCommand теперь берётся из CommunityToolkit.Mvvm.Input
+    // using CommunityToolkit.Mvvm.Input;
+    // Используй RelayCommand напрямую из пакета
 }

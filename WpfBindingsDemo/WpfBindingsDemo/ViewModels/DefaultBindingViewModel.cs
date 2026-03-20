@@ -4,40 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using CommunityToolkit.Mvvm.ComponentModel;
+
 namespace WpfBindingsDemo.ViewModels
 {
-    public class DefaultBindingViewModel : BaseViewModel
+    public partial class DefaultBindingViewModel : BaseViewModel
     {
-        // --- Прямая привязка к элементу (без VM) ---
-        // Демонстрируется прямо в XAML через ElementName
-
-        // --- Привязка через ViewModel ---
+        [ObservableProperty]
         private string _textValue = "Привет, WPF!";
-        public string TextValue
-        {
-            get => _textValue;
-            set => SetProperty(ref _textValue, value);
-        }
 
+        [ObservableProperty]
         private bool _isChecked;
-        public bool IsChecked
-        {
-            get => _isChecked;
-            set => SetProperty(ref _isChecked, value);
-        }
 
+        [ObservableProperty]
         private double _sliderValue = 50;
-        public double SliderValue
-        {
-            get => _sliderValue;
-            set => SetProperty(ref _sliderValue, value);
-        }
 
+        [ObservableProperty]
         private int _selectedIndex;
-        public int SelectedIndex
-        {
-            get => _selectedIndex;
-            set => SetProperty(ref _selectedIndex, value);
-        }
     }
 }
