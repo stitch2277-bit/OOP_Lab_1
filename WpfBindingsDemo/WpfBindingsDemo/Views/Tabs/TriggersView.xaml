@@ -1,9 +1,222 @@
 ﻿<UserControl x:Class="WpfBindingsDemo.Views.Tabs.TriggersView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Grid>
-        <TextBlock Text="Вкладка: Триггеры"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="16"/>
-    </Grid>
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:WpfBindingsDemo.ViewModels">
+
+    <UserControl.DataContext>
+        <vm:TriggersViewModel/>
+    </UserControl.DataContext>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+
+            <!-- Заголовок -->
+            <TextBlock Text="Триггеры (Triggers)"
+                       FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+
+            <TextBlock TextWrapping="Wrap" Margin="0,0,0,20"
+                       Text="Триггеры позволяют менять внешний вид элементов в зависимости от условий — без кода в code-behind."/>
+
+            <!-- Trigger -->
+            <TextBlock Text="1. Trigger — срабатывает по свойству элемента"
+                       FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+
+            <TextBlock TextWrapping="Wrap" Foreground="Gray" Margin="0,0,0,10"
+                       Text="Меняет стиль кнопки когда IsEnabled = false. Определяется прямо в стиле элемента."/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="Включить кнопку:" VerticalAlignment="Center" Width="160"/>
+                <CheckBox IsChecked="{Binding IsEnabled}" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <Button Content="Я меняю цвет по Trigger"
+                    IsEnabled="{Binding IsEnabled}"
+                    HorizontalAlignment="Left" Padding="12,6" Margin="0,10,0,20">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGreen"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="LightGray"/>
+                                <Setter Property="FontWeight" Value="Normal"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="DeepSkyBlue"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Separator Margin="0,0,0,20"/>
+
+            <!-- DataTrigger -->
+            <TextBlock Text="2. DataTrigger — срабатывает по данным из ViewModel"
+                       FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+
+            <TextBlock TextWrapping="Wrap" Foreground="Gray" Margin="0,0,0,10"
+                       Text="Меняет внешний вид в зависимости от значения свойства в ViewModel."/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Button Content="Ок" Command="{Binding SetStatusOkCommand}"
+                        Padding="12,6" Margin="0,0,10,0"/>
+                <Button Content="Ошибка" Command="{Binding SetStatusErrorCommand}"
+                        Padding="12,6" Margin="0,0,10,0"/>
+                <Button Content="Сбросить" Command="{Binding SetStatusNoneCommand}"
+                        Padding="12,6"/>
+            </StackPanel>
+
+            <Border Width="250" Height="50" CornerRadius="6"
+                    HorizontalAlignment="Left" Margin="0,0,0,6">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Status}" Value="Ок">
+                                <Setter Property="Background" Value="LightGreen"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Status}" Value="Ошибка">
+                                <Setter Property="Background" Value="Salmon"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                           FontWeight="Bold" FontSize="14">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Text" Value="Статус: Нет"/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Status}" Value="Ок">
+                                    <Setter Property="Text" Value="✔ Статус: Ок"/>
+                                    <Setter Property="Foreground" Value="DarkGreen"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Status}" Value="Ошибка">
+                                    <Setter Property="Text" Value="✘ Статус: Ошибка"/>
+                                    <Setter Property="Foreground" Value="DarkRed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Border>
+
+            <Separator Margin="0,20,0,20"/>
+
+            <!-- MultiDataTrigger -->
+            <TextBlock Text="3. MultiDataTrigger — несколько условий из ViewModel"
+                       FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+
+            <TextBlock TextWrapping="Wrap" Foreground="Gray" Margin="0,0,0,10"
+                       Text="Срабатывает только когда ВСЕ условия выполнены одновременно."/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="Условие А:" VerticalAlignment="Center" Width="160"/>
+                <CheckBox IsChecked="{Binding ConditionA}" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Условие Б:" VerticalAlignment="Center" Width="160"/>
+                <CheckBox IsChecked="{Binding ConditionB}" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <Border Width="250" Height="50" CornerRadius="6"
+                    HorizontalAlignment="Left" Margin="0,0,0,20">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ConditionA}" Value="True"/>
+                                    <Condition Binding="{Binding ConditionB}" Value="True"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" Value="Gold"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                           FontWeight="Bold">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Text" Value="Отметь оба условия..."/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding ConditionA}" Value="True"/>
+                                        <Condition Binding="{Binding ConditionB}" Value="True"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Text" Value="🎉 Оба условия выполнены!"/>
+                                    <Setter Property="Foreground" Value="DarkGoldenrod"/>
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Border>
+
+            <Separator Margin="0,0,0,20"/>
+
+            <!-- EventTrigger -->
+            <TextBlock Text="4. EventTrigger — срабатывает по событию"
+                       FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+
+            <TextBlock TextWrapping="Wrap" Foreground="Gray" Margin="0,0,0,10"
+                       Text="Запускает анимацию или действие при наступлении события (MouseEnter, MouseLeave, Loaded и т.д.)."/>
+
+            <Button Content="Наведи на меня мышь!"
+                    HorizontalAlignment="Left" Padding="12,6" Margin="0,0,0,10"
+                    Width="220">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="Background" Value="LightBlue"/>
+                    </Style>
+                </Button.Style>
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize"
+                                                 To="18" Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize"
+                                                 To="14" Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+
+            <Border Width="250" Height="50" CornerRadius="6"
+                    HorizontalAlignment="Left" Name="AnimatedBorder"
+                    Background="LightBlue">
+                <Border.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever" AutoReverse="True">
+                                <ColorAnimation
+                                    Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                    From="LightBlue" To="LightCoral"
+                                    Duration="0:0:1.5"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Border.Triggers>
+                <TextBlock Text="Анимация по событию Loaded"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                           FontWeight="Bold"/>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>
