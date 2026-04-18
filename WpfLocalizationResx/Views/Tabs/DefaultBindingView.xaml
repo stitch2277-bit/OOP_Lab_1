@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="WpfLocalizationResx.Views.Tabs.DefaultBindingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:WpfLocalizationResx.ViewModels">
+
+    <UserControl.DataContext>
+        <vm:DefaultBindingViewModel/>
+    </UserControl.DataContext>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+            <TextBlock Text="{Binding Localization.DefaultBindingTitle}" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+            <TextBlock Text="{Binding Localization.DefaultBindingDescription}" TextWrapping="Wrap" Margin="0,0,0,20"/>
+            <TextBlock Text="{Binding Localization.ElementBinding}" FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.EnterText}" VerticalAlignment="Center" Width="120"/>
+                <TextBox x:Name="DirectTextBox" Width="200" Padding="4"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.Result}" VerticalAlignment="Center" Width="120"/>
+                <TextBlock Text="{Binding ElementName=DirectTextBox, Path=Text}" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.Slider}" VerticalAlignment="Center" Width="120"/>
+                <Slider x:Name="DirectSlider" Width="200" Minimum="0" Maximum="100" Value="50"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <TextBlock Text="{Binding Localization.Value}" VerticalAlignment="Center" Width="120"/>
+                <TextBlock Text="{Binding ElementName=DirectSlider, Path=Value, StringFormat={}{0:F0}}" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+            <Separator Margin="0,0,0,20"/>
+            <TextBlock Text="{Binding Localization.ViewModelBinding}" FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.Slider}" VerticalAlignment="Center" Width="120"/>
+                <TextBox Text="{Binding TextValue}" Width="200" Padding="4"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.Result}" VerticalAlignment="Center" Width="120"/>
+                <TextBlock Text="{Binding TextValue}" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.CheckBox}" VerticalAlignment="Center" Width="120"/>
+                <CheckBox IsChecked="{Binding IsChecked}" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.State}" VerticalAlignment="Center" Width="120"/>
+                <TextBlock Text="{Binding IsChecked}" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.SliderVM}" VerticalAlignment="Center" Width="120"/>
+                <Slider Value="{Binding SliderValue}" Width="200" Minimum="0" Maximum="100"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.Value}" VerticalAlignment="Center" Width="120"/>
+                <TextBlock Text="{Binding SliderValue, StringFormat={}{0:F0}}" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.ComboBox}" VerticalAlignment="Center" Width="120"/>
+                <ComboBox SelectedIndex="{Binding SelectedIndex}" Width="200">
+                    <ComboBoxItem Content="{Binding Localization.Item1}"/>
+                    <ComboBoxItem Content="{Binding Localization.Item2}"/>
+                    <ComboBoxItem Content="{Binding Localization.Item3}"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.SelectedIndex}" VerticalAlignment="Center" Width="120"/>
+                <TextBlock Text="{Binding SelectedIndex}" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

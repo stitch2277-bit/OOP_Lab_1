@@ -1,0 +1,100 @@
+<UserControl x:Class="WpfLocalizationExternalLibrary.Views.Tabs.OneWayBindingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:WpfLocalizationExternalLibrary.ViewModels">
+
+    <UserControl.DataContext>
+        <vm:OneWayBindingViewModel/>
+    </UserControl.DataContext>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+
+            <!-- Заголовок -->
+            <TextBlock Text="{Binding Localization.OneWayTitle}"
+                       FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+
+            <TextBlock TextWrapping="Wrap" Margin="0,0,0,20"
+                       Text="{Binding Localization.OneWayDescription}"/>
+
+            <!-- OneWay -->
+            <TextBlock Text="{Binding Localization.OneWayFromVM}"
+                       FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+
+            <TextBlock TextWrapping="Wrap" Foreground="Gray" Margin="0,0,0,10"
+                       Text="{Binding Localization.OneWayDesc1}"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.TextOneWay}" VerticalAlignment="Center" Width="180"/>
+                <TextBlock Text="{Binding SourceText, Mode=OneWay}"
+                           VerticalAlignment="Center" FontWeight="Bold" Foreground="Green"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.TextBoxOneWay}" VerticalAlignment="Center" Width="180"/>
+                <TextBox Text="{Binding SourceText, Mode=OneWay}"
+                         Width="200" Padding="4" IsReadOnly="True" Background="#F0F0F0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.ProgressOneWay}" VerticalAlignment="Center" Width="180"/>
+                <ProgressBar Value="{Binding SliderValue, Mode=OneWay}"
+                             Width="200" Height="20" Minimum="0" Maximum="100"/>
+                <TextBlock Text="{Binding SliderValue, Mode=OneWay, StringFormat={}{0:F0}}"
+                           Margin="10,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+
+            <Button Content="{Binding Localization.UpdateSourceData}"
+                    Command="{Binding UpdateSourceCommand}"
+                    HorizontalAlignment="Left" Padding="12,6" Margin="0,10,0,6"/>
+
+            <TextBlock TextWrapping="Wrap" Foreground="Gray" Margin="0,0,0,20"
+                       Text="{Binding Localization.OneWayDesc2}"/>
+
+            <Separator Margin="0,0,0,20"/>
+
+            <!-- OneWayToSource -->
+            <TextBlock Text="{Binding Localization.OneWayToSource}"
+                       FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+
+            <TextBlock TextWrapping="Wrap" Foreground="Gray" Margin="0,0,0,10"
+                       Text="{Binding Localization.OneWayToSourceDesc}"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.EnterText2}" VerticalAlignment="Center" Width="180"/>
+                <TextBox Width="200" Padding="4"
+                         Text="{Binding InputText, Mode=OneWayToSource,
+                                UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.ReceivedInVM}" VerticalAlignment="Center" Width="180"/>
+                <TextBlock Text="{Binding InputText}"
+                           VerticalAlignment="Center" FontWeight="Bold" Foreground="OrangeRed"/>
+            </StackPanel>
+
+            <TextBlock TextWrapping="Wrap" Foreground="Gray" Margin="0,10,0,10"
+                       Text="{Binding Localization.OneWayToSourceDesc2}"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.SliderOneWayToSource}" VerticalAlignment="Center" Width="180"/>
+                <Slider Value="{Binding UserSliderValue, Mode=OneWayToSource}"
+                        Width="200" Minimum="0" Maximum="100"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.ReceivedInVM}" VerticalAlignment="Center" Width="180"/>
+                <TextBlock Text="{Binding UserSliderValue, StringFormat={}{0:F0}}"
+                           VerticalAlignment="Center" FontWeight="Bold" Foreground="OrangeRed"/>
+            </StackPanel>
+
+            <Button Content="{Binding Localization.ChangeSliderInVM}"
+                    Command="{Binding RandomSliderCommand}"
+                    HorizontalAlignment="Left" Padding="12,6" Margin="0,10,0,6"/>
+
+            <TextBlock TextWrapping="Wrap" Foreground="Gray"
+                       Text="{Binding Localization.OneWayToSourceDesc3}"/>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

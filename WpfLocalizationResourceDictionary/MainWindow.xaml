@@ -1,0 +1,73 @@
+<Window x:Class="WpfLocalizationResourceDictionary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:WpfLocalizationResourceDictionary.ViewModels"
+        xmlns:tabs="clr-namespace:WpfLocalizationResourceDictionary.Views.Tabs"
+        Title="{Binding Localization.WindowTitle}" Height="600" Width="900"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+
+    <Grid Background="#F7F9FC">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                Background="White"
+                BorderBrush="#D9E2EC"
+                BorderThickness="0,0,0,1"
+                Padding="16,12">
+            <DockPanel LastChildFill="False">
+                <TextBlock Text="{Binding Localization.WindowTitle}"
+                           VerticalAlignment="Center"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Foreground="#1F2937"/>
+                <Border DockPanel.Dock="Right"
+                        Background="#F8FAFC"
+                        BorderBrush="#D9E2EC"
+                        BorderThickness="1"
+                        CornerRadius="8"
+                        Padding="10,6">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="{Binding Localization.LanguageSelector}"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,8,0"
+                                   FontWeight="Medium"
+                                   Foreground="#374151"/>
+                        <ComboBox SelectedIndex="0"
+                                  SelectionChanged="LanguageComboBox_SelectionChanged"
+                                  Width="140"
+                                  MinHeight="30"
+                                  VerticalContentAlignment="Center">
+                            <ComboBoxItem Content="{Binding Localization.LanguageRussian}" Tag="ru"/>
+                            <ComboBoxItem Content="{Binding Localization.LanguageEnglish}" Tag="en"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+            </DockPanel>
+        </Border>
+
+        <TabControl SelectedIndex="{Binding SelectedTabIndex}" Grid.Row="1" Margin="12,12,12,12">
+            <TabItem Header="{Binding Localization.TabDefault}">
+                <tabs:DefaultBindingView/>
+            </TabItem>
+            <TabItem Header="{Binding Localization.TabTwoWay}">
+                <tabs:TwoWayBindingView/>
+            </TabItem>
+            <TabItem Header="{Binding Localization.TabOneTime}">
+                <tabs:OneTimeBindingView/>
+            </TabItem>
+            <TabItem Header="{Binding Localization.TabOneWay}">
+                <tabs:OneWayBindingView/>
+            </TabItem>
+            <TabItem Header="{Binding Localization.TabTriggers}">
+                <tabs:TriggersView/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

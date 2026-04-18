@@ -1,0 +1,69 @@
+<UserControl x:Class="WpfLocalizationResourceDictionary.Views.Tabs.DefaultBindingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:WpfLocalizationResourceDictionary.ViewModels">
+    <UserControl.DataContext>
+        <vm:DefaultBindingViewModel/>
+    </UserControl.DataContext>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+            <TextBlock Text="{DynamicResource DefaultBindingTitle}" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+            <TextBlock Text="{DynamicResource DefaultBindingDescription}" TextWrapping="Wrap" Margin="0,0,0,20"/>
+            <TextBlock Text="{DynamicResource ElementBinding}" FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource EnterText}" VerticalAlignment="Center" Width="120"/>
+                <TextBox x:Name="DirectTextBox" Width="200" Padding="4"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource Result}" VerticalAlignment="Center" Width="120"/>
+                <TextBlock Text="{Binding ElementName=DirectTextBox, Path=Text}" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource Slider}" VerticalAlignment="Center" Width="120"/>
+                <Slider x:Name="DirectSlider" Width="200" Minimum="0" Maximum="100" Value="50"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <TextBlock Text="{DynamicResource Value}" VerticalAlignment="Center" Width="120"/>
+                <TextBlock Text="{Binding ElementName=DirectSlider, Path=Value, StringFormat={}{0:F0}}" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+            <Separator Margin="0,0,0,20"/>
+            <TextBlock Text="{DynamicResource ViewModelBinding}" FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource Slider}" VerticalAlignment="Center" Width="120"/>
+                <TextBox Text="{Binding TextValue}" Width="200" Padding="4"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource Result}" VerticalAlignment="Center" Width="120"/>
+                <TextBlock Text="{Binding TextValue}" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource CheckBox}" VerticalAlignment="Center" Width="120"/>
+                <CheckBox IsChecked="{Binding IsChecked}" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource State}" VerticalAlignment="Center" Width="120"/>
+                <TextBlock Text="{Binding IsChecked}" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource SliderVM}" VerticalAlignment="Center" Width="120"/>
+                <Slider Value="{Binding SliderValue}" Width="200" Minimum="0" Maximum="100"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource Value}" VerticalAlignment="Center" Width="120"/>
+                <TextBlock Text="{Binding SliderValue, StringFormat={}{0:F0}}" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource ComboBox}" VerticalAlignment="Center" Width="120"/>
+                <ComboBox SelectedIndex="{Binding SelectedIndex}" Width="200">
+                    <ComboBoxItem Content="{DynamicResource Item1}"/>
+                    <ComboBoxItem Content="{DynamicResource Item2}"/>
+                    <ComboBoxItem Content="{DynamicResource Item3}"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource SelectedIndex}" VerticalAlignment="Center" Width="120"/>
+                <TextBlock Text="{Binding SelectedIndex}" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

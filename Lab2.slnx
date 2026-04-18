@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="WpfLocalizationResx/WpfLocalizationResx.csproj" />
+  <Project Path="WpfLocalizationResourceDictionary/WpfLocalizationResourceDictionary.csproj" />
+  <Project Path="WpfLocalizationExternalLibrary/LocalizationLibrary/LocalizationLibrary.csproj" />
+  <Project Path="WpfLocalizationExternalLibrary/WpfApp/WpfApp.csproj" />
+</Solution>

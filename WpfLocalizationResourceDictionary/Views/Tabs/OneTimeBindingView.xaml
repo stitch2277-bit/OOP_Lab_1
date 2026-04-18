@@ -1,0 +1,55 @@
+<UserControl x:Class="WpfLocalizationResourceDictionary.Views.Tabs.OneTimeBindingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:WpfLocalizationResourceDictionary.ViewModels">
+    <UserControl.DataContext>
+        <vm:OneTimeBindingViewModel/>
+    </UserControl.DataContext>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+            <TextBlock Text="{DynamicResource OneTimeTitle}" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+            <TextBlock Text="{DynamicResource OneTimeDescription}" TextWrapping="Wrap" Margin="0,0,0,20"/>
+            <TextBlock Text="{DynamicResource CompareOneTime}" FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="OneTime:" VerticalAlignment="Center" Width="160"/>
+                <TextBlock Text="{Binding TextValue, Mode=OneTime}" VerticalAlignment="Center" FontWeight="Bold" Foreground="OrangeRed"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="OneWay " VerticalAlignment="Center" Width="160"/>
+                <TextBlock Text="{Binding TextValue, Mode=OneWay}" VerticalAlignment="Center" FontWeight="Bold" Foreground="Green"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <TextBlock Text="{DynamicResource ValueInVM}" VerticalAlignment="Center" Width="160"/>
+                <TextBlock Text="{Binding TextValue}" VerticalAlignment="Center"/>
+            </StackPanel>
+            <Button Content="{DynamicResource UpdateVMValues}" Command="{Binding UpdateValuesCommand}" HorizontalAlignment="Left" Padding="12,6" Margin="0,0,0,6"/>
+            <TextBlock Text="{DynamicResource OneTimeNotUpdated}" TextWrapping="Wrap" Foreground="Gray" Margin="0,0,0,20"/>
+            <Separator Margin="0,0,0,20"/>
+            <TextBlock Text="{DynamicResource SliderComparison}" FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="OneTime:" VerticalAlignment="Center" Width="160"/>
+                <ProgressBar Value="{Binding SliderValue, Mode=OneTime}" Width="200" Height="20" Minimum="0" Maximum="100"/>
+                <TextBlock Text="{Binding SliderValue, Mode=OneTime}" Margin="10,0,0,0" VerticalAlignment="Center" FontWeight="Bold" Foreground="OrangeRed"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <TextBlock Text="OneWay " VerticalAlignment="Center" Width="160"/>
+                <ProgressBar Value="{Binding SliderValue, Mode=OneWay}" Width="200" Height="20" Minimum="0" Maximum="100"/>
+                <TextBlock Text="{Binding SliderValue, Mode=OneWay}" Margin="10,0,0,0" VerticalAlignment="Center" FontWeight="Bold" Foreground="Green"/>
+            </StackPanel>
+            <Button Content="{DynamicResource UpdateVMValues2}" Command="{Binding UpdateValuesCommand}" HorizontalAlignment="Left" Padding="12,6" Margin="0,0,0,6"/>
+            <TextBlock Text="{DynamicResource OneTimeNotChanged}" TextWrapping="Wrap" Foreground="Gray" Margin="0,0,0,20"/>
+            <Separator Margin="0,0,0,20"/>
+            <TextBlock Text="{DynamicResource CurrentTimeOneTime}" FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource FixedOneTime}" VerticalAlignment="Center" Width="200"/>
+                <TextBlock Text="{Binding CurrentTime, Mode=OneTime}" VerticalAlignment="Center" FontWeight="Bold" Foreground="OrangeRed" FontSize="16"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <TextBlock Text="{DynamicResource ActualOneWay}" VerticalAlignment="Center" Width="200"/>
+                <TextBlock Text="{Binding CurrentTime, Mode=OneWay}" VerticalAlignment="Center" FontWeight="Bold" Foreground="Green" FontSize="16"/>
+            </StackPanel>
+            <Button Content="{DynamicResource UpdateTimeVM}" Command="{Binding UpdateTimeCommand}" HorizontalAlignment="Left" Padding="12,6" Margin="0,0,0,6"/>
+            <TextBlock Text="{DynamicResource OneTimeDesc}" TextWrapping="Wrap" Foreground="Gray"/>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,119 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- MainWindow -->
+    <sys:String x:Key="WindowTitle">WPF Привязки Демо</sys:String>
+    <sys:String x:Key="TabDefault">Привязка по умолчанию</sys:String>
+    <sys:String x:Key="TabTwoWay">Двухсторонняя привязка</sys:String>
+    <sys:String x:Key="TabOneTime">Одноразовая привязка</sys:String>
+    <sys:String x:Key="TabOneWay">Односторонние привязки</sys:String>
+    <sys:String x:Key="TabTriggers">Триггеры</sys:String>
+
+    <!-- Language Selector -->
+    <sys:String x:Key="LanguageSelector">Язык:</sys:String>
+    <sys:String x:Key="LanguageEnglish">Английский</sys:String>
+    <sys:String x:Key="LanguageRussian">Русский</sys:String>
+
+    <!-- DefaultBindingView -->
+    <sys:String x:Key="DefaultBindingTitle">Привязка по умолчанию (Default)</sys:String>
+    <sys:String x:Key="DefaultBindingDescription">Default — это поведение привязки по умолчанию для каждого элемента. Для большинства свойств это OneWay, но для редактируемых элементов (TextBox, CheckBox) — TwoWay.</sys:String>
+    <sys:String x:Key="ElementBinding">1. Прямая привязка между элементами (ElementName)</sys:String>
+    <sys:String x:Key="EnterText">Введи текст:</sys:String>
+    <sys:String x:Key="Result">Результат:</sys:String>
+    <sys:String x:Key="Slider">Слайдер:</sys:String>
+    <sys:String x:Key="Value">Значение:</sys:String>
+    <sys:String x:Key="ViewModelBinding">2. Привязка через ViewModel</sys:String>
+    <sys:String x:Key="CheckBox">CheckBox:</sys:String>
+    <sys:String x:Key="State">Состояние:</sys:String>
+    <sys:String x:Key="SliderVM">Слайдер VM:</sys:String>
+    <sys:String x:Key="ComboBox">ComboBox:</sys:String>
+    <sys:String x:Key="SelectedIndex">Выбран индекс:</sys:String>
+
+    <!-- TwoWayBindingView -->
+    <sys:String x:Key="TwoWayTitle">Двухсторонняя привязка (TwoWay)</sys:String>
+    <sys:String x:Key="TwoWayDescription">TwoWay — изменения идут в обе стороны: из UI в ViewModel и из ViewModel в UI. Любое изменение в одном месте сразу отражается в другом.</sys:String>
+    <sys:String x:Key="ElementBindingTwoWay">1. Прямая привязка между элементами (TwoWay)</sys:String>
+    <sys:String x:Key="TextBox1">TextBox 1:</sys:String>
+    <sys:String x:Key="TextBox2">TextBox 2:</sys:String>
+    <sys:String x:Key="SyncText">Синхронный текст</sys:String>
+    <sys:String x:Key="ViewModelBindingTwoWay">2. Привязка через ViewModel (TwoWay)</sys:String>
+    <sys:String x:Key="Display">Отображение:</sys:String>
+    <sys:String x:Key="Progress">Прогресс:</sys:String>
+    <sys:String x:Key="Enable">Включить</sys:String>
+    <sys:String x:Key="OptionA">Вариант А</sys:String>
+    <sys:String x:Key="OptionB">Вариант Б</sys:String>
+    <sys:String x:Key="OptionC">Вариант В</sys:String>
+    <sys:String x:Key="ResetAll">Сбросить все значения</sys:String>
+
+    <!-- OneTimeBindingView -->
+    <sys:String x:Key="OneTimeTitle">Одноразовая привязка (OneTime)</sys:String>
+    <sys:String x:Key="OneTimeDescription">OneTime — значение считывается из источника только один раз при инициализации. Последующие изменения в ViewModel не обновляют UI. Используется для статичных данных.</sys:String>
+    <sys:String x:Key="CompareOneTime">1. Сравнение OneTime и OneWay</sys:String>
+    <sys:String x:Key="ForComparison">(для сравнения):</sys:String>
+    <sys:String x:Key="ValueInVM">Значение в VM:</sys:String>
+    <sys:String x:Key="UpdateVMValues">Обновить значение в ViewModel</sys:String>
+    <sys:String x:Key="OneTimeNotUpdated">После нажатия: OneTime НЕ обновится, OneWay — обновится.</sys:String>
+    <sys:String x:Key="SliderComparison">2. Слайдер — OneTime vs OneWay</sys:String>
+    <sys:String x:Key="UpdateVMValues2">Обновить значения в ViewModel</sys:String>
+    <sys:String x:Key="OneTimeNotChanged">После нажатия: OneTime НЕ изменится, OneWay — изменится.</sys:String>
+    <sys:String x:Key="CurrentTimeOneTime">3. Текущее время — OneTime</sys:String>
+    <sys:String x:Key="FixedOneTime">Зафиксировано (OneTime):</sys:String>
+    <sys:String x:Key="ActualOneWay">Актуальное (OneWay):</sys:String>
+    <sys:String x:Key="UpdateTimeVM">Обновить время в ViewModel</sys:String>
+    <sys:String x:Key="OneTimeDesc">OneTime показывает время загрузки вкладки. OneWay обновляется при нажатии кнопки.</sys:String>
+
+    <!-- OneWayBindingView -->
+    <sys:String x:Key="OneWayTitle">Односторонние привязки (OneWay / OneWayToSource)</sys:String>
+    <sys:String x:Key="OneWayDescription">OneWay — данные идут только из ViewModel в UI. OneWayToSource — данные идут только из UI в ViewModel. Изменения в противоположном направлении игнорируются.</sys:String>
+    <sys:String x:Key="OneWayFromVM">1. OneWay — из ViewModel в UI</sys:String>
+    <sys:String x:Key="OneWayDesc1">UI отображает данные из VM. Изменить значение в UI нельзя — оно всегда диктуется ViewModel.</sys:String>
+    <sys:String x:Key="TextOneWay">Текст (OneWay):</sys:String>
+    <sys:String x:Key="TextBoxOneWay">TextBox (OneWay):</sys:String>
+    <sys:String x:Key="ProgressOneWay">Прогресс (OneWay):</sys:String>
+    <sys:String x:Key="UpdateSourceData">Обновить данные в ViewModel</sys:String>
+    <sys:String x:Key="OneWayDesc2">Только кнопка может обновить данные — через VM. UI сам по себе не меняет источник.</sys:String>
+    <sys:String x:Key="OneWayToSource">2. OneWayToSource — из UI в ViewModel</sys:String>
+    <sys:String x:Key="OneWayToSourceDesc">UI отправляет данные в VM, но VM не может обновить UI через эту привязку.</sys:String>
+    <sys:String x:Key="EnterText2">Введи текст:</sys:String>
+    <sys:String x:Key="ReceivedInVM">В ViewModel пришло:</sys:String>
+    <sys:String x:Key="OneWayToSourceDesc2">Текст из TextBox попадает в VM. Но если VM изменит InputText — TextBox не обновится.</sys:String>
+    <sys:String x:Key="SliderOneWayToSource">Слайдер (OneWayToSource):</sys:String>
+    <sys:String x:Key="ChangeSliderInVM">Изменить UserSliderValue в VM (слайдер не обновится)</sys:String>
+    <sys:String x:Key="OneWayToSourceDesc3">Кнопка меняет значение в VM, но слайдер не реагирует — OneWayToSource не передаёт данные из VM в UI.</sys:String>
+
+    <!-- TriggersView -->
+    <sys:String x:Key="TriggersTitle">Триггеры (Triggers)</sys:String>
+    <sys:String x:Key="TriggersDescription">Триггеры позволяют менять внешний вид элементов в зависимости от условий — без кода в code-behind.</sys:String>
+    <sys:String x:Key="Trigger1">1. Trigger — срабатывает по свойству элемента</sys:String>
+    <sys:String x:Key="Trigger1Desc">Меняет стиль кнопки когда IsEnabled = false. Определяется прямо в стиле элемента.</sys:String>
+    <sys:String x:Key="EnableButton">Включить кнопку:</sys:String>
+    <sys:String x:Key="TriggerButtonText">Я меняю цвет по Trigger</sys:String>
+    <sys:String x:Key="Trigger2">2. DataTrigger — срабатывает по данным из ViewModel</sys:String>
+    <sys:String x:Key="Trigger2Desc">Меняет внешний вид в зависимости от значения свойства в ViewModel.</sys:String>
+    <sys:String x:Key="Ok">Ок</sys:String>
+    <sys:String x:Key="Error">Ошибка</sys:String>
+    <sys:String x:Key="Reset">Сбросить</sys:String>
+    <sys:String x:Key="Trigger3">3. MultiDataTrigger — несколько условий из ViewModel</sys:String>
+    <sys:String x:Key="Trigger3Desc">Срабатывает только когда ВСЕ условия выполнены одновременно.</sys:String>
+    <sys:String x:Key="ConditionA">Условие А:</sys:String>
+    <sys:String x:Key="ConditionB">Условие Б:</sys:String>
+    <sys:String x:Key="SelectBothConditions">Отметь оба условия...</sys:String>
+    <sys:String x:Key="BothConditionsMet">🎉 Оба условия выполнены!</sys:String>
+    <sys:String x:Key="Trigger4">4. EventTrigger — срабатывает по событию</sys:String>
+    <sys:String x:Key="Trigger4Desc">Запускает анимацию или действие при наступлении события (MouseEnter, MouseLeave, Loaded и т.д.).</sys:String>
+    <sys:String x:Key="HoverMe">Наведи на меня мышь!</sys:String>
+    <sys:String x:Key="LoadedAnimation">Анимация по событию Loaded</sys:String>
+    <sys:String x:Key="StatusNone">Статус: Нет</sys:String>
+    <sys:String x:Key="StatusOk">✔ Статус: Ок</sys:String>
+    <sys:String x:Key="StatusError">✘ Статус: Ошибка</sys:String>
+
+    <!-- Items -->
+    <sys:String x:Key="Item1">Элемент 1</sys:String>
+    <sys:String x:Key="Item2">Элемент 2</sys:String>
+    <sys:String x:Key="Item3">Элемент 3</sys:String>
+
+    <!-- MessageBox -->
+    <sys:String x:Key="LanguageChangedMessage">Язык изменён на русский</sys:String>
+    <sys:String x:Key="LanguageChangedTitle">Смена языка</sys:String>
+</ResourceDictionary>

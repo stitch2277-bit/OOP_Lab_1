@@ -1,0 +1,53 @@
+<UserControl x:Class="WpfLocalizationResourceDictionary.Views.Tabs.OneWayBindingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:WpfLocalizationResourceDictionary.ViewModels">
+    <UserControl.DataContext>
+        <vm:OneWayBindingViewModel/>
+    </UserControl.DataContext>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+            <TextBlock Text="{DynamicResource OneWayTitle}" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+            <TextBlock Text="{DynamicResource OneWayDescription}" TextWrapping="Wrap" Margin="0,0,0,20"/>
+            <TextBlock Text="{DynamicResource OneWayFromVM}" FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+            <TextBlock Text="{DynamicResource OneWayDesc1}" TextWrapping="Wrap" Foreground="Gray" Margin="0,0,0,10"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource TextOneWay}" VerticalAlignment="Center" Width="180"/>
+                <TextBlock Text="{Binding SourceText, Mode=OneWay}" VerticalAlignment="Center" FontWeight="Bold" Foreground="Green"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource TextBoxOneWay}" VerticalAlignment="Center" Width="180"/>
+                <TextBox Text="{Binding SourceText, Mode=OneWay}" Width="200" Padding="4" IsReadOnly="True" Background="#F0F0F0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource ProgressOneWay}" VerticalAlignment="Center" Width="180"/>
+                <ProgressBar Value="{Binding SliderValue, Mode=OneWay}" Width="200" Height="20" Minimum="0" Maximum="100"/>
+                <TextBlock Text="{Binding SliderValue, Mode=OneWay, StringFormat={}{0:F0}}" Margin="10,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+            <Button Content="{DynamicResource UpdateSourceData}" Command="{Binding UpdateSourceCommand}" HorizontalAlignment="Left" Padding="12,6" Margin="0,10,0,6"/>
+            <TextBlock Text="{DynamicResource OneWayDesc2}" TextWrapping="Wrap" Foreground="Gray" Margin="0,0,0,20"/>
+            <Separator Margin="0,0,0,20"/>
+            <TextBlock Text="{DynamicResource OneWayToSource}" FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+            <TextBlock Text="{DynamicResource OneWayToSourceDesc}" TextWrapping="Wrap" Foreground="Gray" Margin="0,0,0,10"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource EnterText2}" VerticalAlignment="Center" Width="180"/>
+                <TextBox Width="200" Padding="4" Text="{Binding InputText, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource ReceivedInVM}" VerticalAlignment="Center" Width="180"/>
+                <TextBlock Text="{Binding InputText}" VerticalAlignment="Center" FontWeight="Bold" Foreground="OrangeRed"/>
+            </StackPanel>
+            <TextBlock Text="{DynamicResource OneWayToSourceDesc2}" TextWrapping="Wrap" Foreground="Gray" Margin="0,10,0,10"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource SliderOneWayToSource}" VerticalAlignment="Center" Width="180"/>
+                <Slider Value="{Binding UserSliderValue, Mode=OneWayToSource}" Width="200" Minimum="0" Maximum="100"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{DynamicResource ReceivedInVM}" VerticalAlignment="Center" Width="180"/>
+                <TextBlock Text="{Binding UserSliderValue, StringFormat={}{0:F0}}" VerticalAlignment="Center" FontWeight="Bold" Foreground="OrangeRed"/>
+            </StackPanel>
+            <Button Content="{DynamicResource ChangeSliderInVM}" Command="{Binding RandomSliderCommand}" HorizontalAlignment="Left" Padding="12,6" Margin="0,10,0,6"/>
+            <TextBlock Text="{DynamicResource OneWayToSourceDesc3}" TextWrapping="Wrap" Foreground="Gray"/>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

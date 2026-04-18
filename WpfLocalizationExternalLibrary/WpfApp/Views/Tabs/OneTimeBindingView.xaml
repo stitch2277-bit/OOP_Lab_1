@@ -1,0 +1,111 @@
+<UserControl x:Class="WpfLocalizationExternalLibrary.Views.Tabs.OneTimeBindingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:WpfLocalizationExternalLibrary.ViewModels">
+
+    <UserControl.DataContext>
+        <vm:OneTimeBindingViewModel/>
+    </UserControl.DataContext>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+
+            <!-- Заголовок -->
+            <TextBlock Text="{Binding Localization.OneTimeTitle}"
+                       FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+
+            <TextBlock TextWrapping="Wrap" Margin="0,0,0,20"
+                       Text="{Binding Localization.OneTimeDescription}"/>
+
+            <!-- Демонстрация OneTime vs OneWay -->
+            <TextBlock Text="{Binding Localization.CompareOneTime}"
+                       FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.OneTimeTitle}" VerticalAlignment="Center" Width="160"/>
+                <TextBlock Text="{Binding Localization.OneTimeTitle}"
+                           VerticalAlignment="Center" FontWeight="Bold"
+                           Foreground="OrangeRed"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.CompareOneTime}" VerticalAlignment="Center" Width="160"/>
+                <TextBlock Text="{Binding TextValue, Mode=OneWay}"
+                           VerticalAlignment="Center" FontWeight="Bold"
+                           Foreground="Green"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <TextBlock Text="{Binding Localization.ValueInVM}" VerticalAlignment="Center" Width="160"/>
+                <TextBlock Text="{Binding TextValue}"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <Button Content="{Binding Localization.UpdateVMValues}"
+                    Command="{Binding UpdateValuesCommand}"
+                    HorizontalAlignment="Left" Padding="12,6" Margin="0,0,0,6"/>
+
+            <TextBlock TextWrapping="Wrap" Foreground="Gray" Margin="0,0,0,20"
+                       Text="{Binding Localization.OneTimeNotUpdated}"/>
+
+            <Separator Margin="0,0,0,20"/>
+
+            <!-- Слайдер -->
+            <TextBlock Text="{Binding Localization.SliderComparison}"
+                       FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.OneTimeTitle}" VerticalAlignment="Center" Width="160"/>
+                <ProgressBar Value="{Binding SliderValue, Mode=OneTime}"
+                             Width="200" Height="20" Minimum="0" Maximum="100"/>
+                <TextBlock Text="{Binding SliderValue, Mode=OneTime}"
+                           Margin="10,0,0,0" VerticalAlignment="Center" FontWeight="Bold"
+                           Foreground="OrangeRed"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <TextBlock Text="{Binding Localization.CompareOneTime}" VerticalAlignment="Center" Width="160"/>
+                <ProgressBar Value="{Binding SliderValue, Mode=OneWay}"
+                             Width="200" Height="20" Minimum="0" Maximum="100"/>
+                <TextBlock Text="{Binding SliderValue, Mode=OneWay}"
+                           Margin="10,0,0,0" VerticalAlignment="Center" FontWeight="Bold"
+                           Foreground="Green"/>
+            </StackPanel>
+
+            <Button Content="{Binding Localization.UpdateVMValues2}"
+                    Command="{Binding UpdateValuesCommand}"
+                    HorizontalAlignment="Left" Padding="12,6" Margin="0,0,0,6"/>
+
+            <TextBlock TextWrapping="Wrap" Foreground="Gray" Margin="0,0,0,20"
+                       Text="{Binding Localization.OneTimeNotChanged}"/>
+
+            <Separator Margin="0,0,0,20"/>
+
+            <!-- Время -->
+            <TextBlock Text="{Binding Localization.CurrentTimeOneTime}"
+                       FontSize="14" FontWeight="Bold" Margin="0,0,0,8"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                <TextBlock Text="{Binding Localization.FixedOneTime}" VerticalAlignment="Center" Width="200"/>
+                <TextBlock Text="{Binding CurrentTime, Mode=OneTime}"
+                           VerticalAlignment="Center" FontWeight="Bold"
+                           Foreground="OrangeRed" FontSize="16"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <TextBlock Text="{Binding Localization.ActualOneWay}" VerticalAlignment="Center" Width="200"/>
+                <TextBlock Text="{Binding CurrentTime, Mode=OneWay}"
+                           VerticalAlignment="Center" FontWeight="Bold"
+                           Foreground="Green" FontSize="16"/>
+            </StackPanel>
+
+            <Button Content="{Binding Localization.UpdateTimeVM}"
+                    Command="{Binding UpdateTimeCommand}"
+                    HorizontalAlignment="Left" Padding="12,6" Margin="0,0,0,6"/>
+
+            <TextBlock TextWrapping="Wrap" Foreground="Gray"
+                       Text="{Binding Localization.OneTimeDesc}"/>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="WindowTitle" xml:space="preserve"><value>WPF Привязки Демо</value></data>
+  <data name="TabDefault" xml:space="preserve"><value>Привязка по умолчанию</value></data>
+  <data name="TabTwoWay" xml:space="preserve"><value>Двухсторонняя привязка</value></data>
+  <data name="TabOneTime" xml:space="preserve"><value>Одноразовая привязка</value></data>
+  <data name="TabOneWay" xml:space="preserve"><value>Односторонние привязки</value></data>
+  <data name="TabTriggers" xml:space="preserve"><value>Триггеры</value></data>
+  <data name="LanguageSelector" xml:space="preserve"><value>Язык:</value></data>
+  <data name="LanguageEnglish" xml:space="preserve"><value>Английский</value></data>
+  <data name="LanguageRussian" xml:space="preserve"><value>Русский</value></data>
+  <data name="DefaultBindingTitle" xml:space="preserve"><value>Привязка по умолчанию (Default)</value></data>
+  <data name="DefaultBindingDescription" xml:space="preserve"><value>Default - это поведение привязки по умолчанию для каждого элемента. Для большинства свойств это OneWay, но для редактируемых элементов (TextBox, CheckBox) - TwoWay.</value></data>
+  <data name="ElementBinding" xml:space="preserve"><value>1. Прямая привязка между элементами (ElementName)</value></data>
+  <data name="EnterText" xml:space="preserve"><value>Введи текст:</value></data>
+  <data name="Result" xml:space="preserve"><value>Результат:</value></data>
+  <data name="Slider" xml:space="preserve"><value>Слайдер:</value></data>
+  <data name="Value" xml:space="preserve"><value>Значение:</value></data>
+  <data name="ViewModelBinding" xml:space="preserve"><value>2. Привязка через ViewModel</value></data>
+  <data name="CheckBox" xml:space="preserve"><value>CheckBox:</value></data>
+  <data name="State" xml:space="preserve"><value>Состояние:</value></data>
+  <data name="SliderVM" xml:space="preserve"><value>Слайдер VM:</value></data>
+  <data name="ComboBox" xml:space="preserve"><value>ComboBox:</value></data>
+  <data name="SelectedIndex" xml:space="preserve"><value>Выбран индекс:</value></data>
+  <data name="TwoWayTitle" xml:space="preserve"><value>Двухсторонняя привязка (TwoWay)</value></data>
+  <data name="TwoWayDescription" xml:space="preserve"><value>TwoWay - изменения идут в обе стороны: из UI в ViewModel и из ViewModel в UI. Любое изменение в одном месте сразу отражается в другом.</value></data>
+  <data name="ElementBindingTwoWay" xml:space="preserve"><value>1. Прямая привязка между элементами (TwoWay)</value></data>
+  <data name="TextBox1" xml:space="preserve"><value>TextBox 1:</value></data>
+  <data name="TextBox2" xml:space="preserve"><value>TextBox 2:</value></data>
+  <data name="SyncText" xml:space="preserve"><value>Синхронный текст</value></data>
+  <data name="ViewModelBindingTwoWay" xml:space="preserve"><value>2. Привязка через ViewModel (TwoWay)</value></data>
+  <data name="Display" xml:space="preserve"><value>Отображение:</value></data>
+  <data name="Progress" xml:space="preserve"><value>Прогресс:</value></data>
+  <data name="Enable" xml:space="preserve"><value>Включить</value></data>
+  <data name="OptionA" xml:space="preserve"><value>Вариант А</value></data>
+  <data name="OptionB" xml:space="preserve"><value>Вариант Б</value></data>
+  <data name="OptionC" xml:space="preserve"><value>Вариант В</value></data>
+  <data name="ResetAll" xml:space="preserve"><value>Сбросить все значения</value></data>
+  <data name="OneTimeTitle" xml:space="preserve"><value>Одноразовая привязка (OneTime)</value></data>
+  <data name="OneTimeDescription" xml:space="preserve"><value>OneTime - значение считывается из источника только один раз при инициализации. Последующие изменения в ViewModel не обновляют UI. Используется для статичных данных.</value></data>
+  <data name="CompareOneTime" xml:space="preserve"><value>1. Сравнение OneTime и OneWay</value></data>
+  <data name="ForComparison" xml:space="preserve"><value>(для сравнения):</value></data>
+  <data name="ValueInVM" xml:space="preserve"><value>Значение в VM:</value></data>
+  <data name="UpdateVMValues" xml:space="preserve"><value>Обновить значение в ViewModel</value></data>
+  <data name="OneTimeNotUpdated" xml:space="preserve"><value>После нажатия: OneTime НЕ обновится, OneWay обновится.</value></data>
+  <data name="SliderComparison" xml:space="preserve"><value>2. Слайдер - OneTime vs OneWay</value></data>
+  <data name="UpdateVMValues2" xml:space="preserve"><value>Обновить значения в ViewModel</value></data>
+  <data name="OneTimeNotChanged" xml:space="preserve"><value>После нажатия: OneTime НЕ изменится, OneWay изменится.</value></data>
+  <data name="CurrentTimeOneTime" xml:space="preserve"><value>3. Текущее время - OneTime</value></data>
+  <data name="FixedOneTime" xml:space="preserve"><value>Зафиксировано (OneTime):</value></data>
+  <data name="ActualOneWay" xml:space="preserve"><value>Актуальное (OneWay):</value></data>
+  <data name="UpdateTimeVM" xml:space="preserve"><value>Обновить время в ViewModel</value></data>
+  <data name="OneTimeDesc" xml:space="preserve"><value>OneTime показывает время загрузки вкладки. OneWay обновляется при нажатии кнопки.</value></data>
+  <data name="OneWayTitle" xml:space="preserve"><value>Односторонние привязки (OneWay / OneWayToSource)</value></data>
+  <data name="OneWayDescription" xml:space="preserve"><value>OneWay - данные идут только из ViewModel в UI. OneWayToSource - данные идут только из UI в ViewModel. Изменения в противоположном направлении игнорируются.</value></data>
+  <data name="OneWayFromVM" xml:space="preserve"><value>1. OneWay - из ViewModel в UI</value></data>
+  <data name="OneWayDesc1" xml:space="preserve"><value>UI отображает данные из VM. Изменить значение в UI нельзя, потому что оно диктуется ViewModel.</value></data>
+  <data name="TextOneWay" xml:space="preserve"><value>Текст (OneWay):</value></data>
+  <data name="TextBoxOneWay" xml:space="preserve"><value>TextBox (OneWay):</value></data>
+  <data name="ProgressOneWay" xml:space="preserve"><value>Прогресс (OneWay):</value></data>
+  <data name="UpdateSourceData" xml:space="preserve"><value>Обновить данные в ViewModel</value></data>
+  <data name="OneWayDesc2" xml:space="preserve"><value>Только кнопка может обновить данные через VM. UI сам по себе не меняет источник.</value></data>
+  <data name="OneWayToSource" xml:space="preserve"><value>2. OneWayToSource - из UI в ViewModel</value></data>
+  <data name="OneWayToSourceDesc" xml:space="preserve"><value>UI отправляет данные в VM, но VM не может обновить UI через эту привязку.</value></data>
+  <data name="EnterText2" xml:space="preserve"><value>Введи текст:</value></data>
+  <data name="ReceivedInVM" xml:space="preserve"><value>В ViewModel пришло:</value></data>
+  <data name="OneWayToSourceDesc2" xml:space="preserve"><value>Текст из TextBox попадает в VM. Но если VM изменит InputText, TextBox не обновится.</value></data>
+  <data name="SliderOneWayToSource" xml:space="preserve"><value>Слайдер (OneWayToSource):</value></data>
+  <data name="ChangeSliderInVM" xml:space="preserve"><value>Изменить UserSliderValue в VM (слайдер не обновится)</value></data>
+  <data name="OneWayToSourceDesc3" xml:space="preserve"><value>Кнопка меняет значение в VM, но слайдер не реагирует, потому что OneWayToSource не передаёт данные из VM в UI.</value></data>
+  <data name="TriggersTitle" xml:space="preserve"><value>Триггеры (Triggers)</value></data>
+  <data name="TriggersDescription" xml:space="preserve"><value>Триггеры позволяют менять внешний вид элементов в зависимости от условий без кода в code-behind.</value></data>
+  <data name="Trigger1" xml:space="preserve"><value>1. Trigger - срабатывает по свойству элемента</value></data>
+  <data name="Trigger1Desc" xml:space="preserve"><value>Меняет стиль кнопки, когда IsEnabled = false. Определяется прямо в стиле элемента.</value></data>
+  <data name="EnableButton" xml:space="preserve"><value>Включить кнопку:</value></data>
+  <data name="TriggerButtonText" xml:space="preserve"><value>Я меняю цвет по Trigger</value></data>
+  <data name="Trigger2" xml:space="preserve"><value>2. DataTrigger - срабатывает по данным из ViewModel</value></data>
+  <data name="Trigger2Desc" xml:space="preserve"><value>Меняет внешний вид в зависимости от значения свойства в ViewModel.</value></data>
+  <data name="Ok" xml:space="preserve"><value>Ок</value></data>
+  <data name="Error" xml:space="preserve"><value>Ошибка</value></data>
+  <data name="Reset" xml:space="preserve"><value>Сбросить</value></data>
+  <data name="Trigger3" xml:space="preserve"><value>3. MultiDataTrigger - несколько условий из ViewModel</value></data>
+  <data name="Trigger3Desc" xml:space="preserve"><value>Срабатывает только когда ВСЕ условия выполнены одновременно.</value></data>
+  <data name="ConditionA" xml:space="preserve"><value>Условие А:</value></data>
+  <data name="ConditionB" xml:space="preserve"><value>Условие Б:</value></data>
+  <data name="SelectBothConditions" xml:space="preserve"><value>Отметь оба условия...</value></data>
+  <data name="BothConditionsMet" xml:space="preserve"><value>Оба условия выполнены!</value></data>
+  <data name="Trigger4" xml:space="preserve"><value>4. EventTrigger - срабатывает по событию</value></data>
+  <data name="Trigger4Desc" xml:space="preserve"><value>Запускает анимацию или действие при наступлении события (MouseEnter, MouseLeave, Loaded и так далее).</value></data>
+  <data name="HoverMe" xml:space="preserve"><value>Наведи на меня мышь!</value></data>
+  <data name="LoadedAnimation" xml:space="preserve"><value>Анимация по событию Loaded</value></data>
+  <data name="StatusNone" xml:space="preserve"><value>Статус: Нет</value></data>
+  <data name="StatusOk" xml:space="preserve"><value>Статус: Ок</value></data>
+  <data name="StatusError" xml:space="preserve"><value>Статус: Ошибка</value></data>
+  <data name="Item1" xml:space="preserve"><value>Элемент 1</value></data>
+  <data name="Item2" xml:space="preserve"><value>Элемент 2</value></data>
+  <data name="Item3" xml:space="preserve"><value>Элемент 3</value></data>
+</root>
